@@ -129,6 +129,29 @@ def main():
     # --- Padronização de localização ---
     df["location"] = df["location"].str.strip().str.title()
 
+    # --- Extração de estado ---
+    def extract_estado(location_areas: str) -> str:
+        parts = [p.strip() for p in str(location_areas).split(">")]
+        if len(parts) >= 3:
+            return parts[2]
+        return parts[0]
+
+    df["estado"] = df["location_areas"].apply(extract_estado)
+
+    # --- Skills binárias ---
+    SKILLS = [
+        "Python", "SQL", "R", "Excel", "VBA", "Power BI", "Tableau", "Looker",
+        "Qlik", "AWS", "Azure", "GCP", "Google Cloud", "Spark", "Hadoop",
+        "Airflow", "Kafka", "dbt", "Databricks", "PostgreSQL", "MySQL",
+        "Oracle", "MongoDB", "SQL Server", "BigQuery", "Redshift", "Snowflake",
+        "Machine Learning", "Scikit-learn", "TensorFlow", "PyTorch", "Git",
+        "Docker", "Linux", "ETL", "API",
+    ]
+    desc_lower = df["description"].str.lower()
+    for skill in SKILLS:
+        pattern = r"\b" + re.escape(skill.lower()) + r"\b"
+        df[f"skill_{skill}"] = desc_lower.str.contains(pattern, regex=True).astype(int)
+
     # --- Salvar ---
     PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
