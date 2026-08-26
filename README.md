@@ -92,6 +92,17 @@ Apenas 178 vagas (5,2%) informam salário. Valores anuais em reais.
 - **Modalidade:** 88,5% não especificado, 4,9% remoto, 3,8% híbrido, 2,8% presencial.
 - **Estados:** SP concentra 43,4% das vagas; 26% têm localização genérica ("Brasil", sem estado específico).
 
+## Dashboard
+
+Dashboard interativo em Streamlit com filtros por senioridade, modalidade, skill e estado. Inclui KPIs dinâmicos, gráficos de skills, salário por senioridade e distribuição geográfica/modalidade, além de tabela com links para as vagas originais.
+
+### Como rodar localmente
+
+```bash
+pip install -r requirements.txt
+streamlit run dashboard/app.py
+```
+
 ## Status do projeto
 
-**Em andamento** — coleta, tratamento e análise exploratória concluídos, próxima etapa: dashboard.
+**Concluído (v1.0)** — setup, coleta, tratamento, análise exploratória e dashboard finalizados.
