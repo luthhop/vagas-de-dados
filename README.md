@@ -30,6 +30,21 @@ vagas-de-dados/
 └── docs/             # Documentação adicional
 ```
 
+## Coleta de dados
+
+- **Fonte:** [API Adzuna](https://developer.adzuna.com/) — endpoint Brasil.
+- **Data da coleta:** 26/08/2026.
+- **Termos de busca utilizados:**
+  - dados
+  - analista de dados
+  - cientista de dados
+  - data analyst
+  - data engineer
+  - data scientist
+  - business intelligence
+- **Total de vagas coletadas:** 4.223 (com duplicatas entre termos, a serem tratadas na etapa de limpeza).
+- **Limitação conhecida:** alguns termos de busca atingiram o teto de resultados por execução (1.000 vagas), então o volume real de vagas disponíveis para esses termos pode ser maior do que o capturado. A amostra é considerada suficiente para os objetivos do projeto, mas não representa 100% das vagas publicadas.
+
 ## Status do projeto
 
-**Em andamento** — setup inicial.
+**Em andamento** — coleta de dados concluída, próxima etapa: limpeza e deduplicação.
