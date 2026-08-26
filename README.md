@@ -45,6 +45,23 @@ vagas-de-dados/
 - **Total de vagas coletadas:** 4.223 (com duplicatas entre termos, a serem tratadas na etapa de limpeza).
 - **Limitação conhecida:** alguns termos de busca atingiram o teto de resultados por execução (1.000 vagas), então o volume real de vagas disponíveis para esses termos pode ser maior do que o capturado. A amostra é considerada suficiente para os objetivos do projeto, mas não representa 100% das vagas publicadas.
 
+## Tratamento de dados
+
+- **Deduplicação:** 4.223 → 3.409 registros (814 duplicatas removidas — mesma vaga aparecendo em múltiplos termos de busca).
+- **Salário:** 178 vagas (5,2%) com valor informado (real ou estimado pela Adzuna); demais ficaram como nulo, sem inferência.
+- **Modalidade** (inferida por palavras-chave explícitas no título/descrição):
+  - Remoto: 166
+  - Híbrido: 131
+  - Presencial: 95
+  - Não especificado: 3.017 (88,5%)
+- **Senioridade** (inferida por palavras-chave no título):
+  - Não especificado: 1.973
+  - Sênior: 773
+  - Pleno: 366
+  - Júnior: 176
+  - Estágio: 121
+- **Nota metodológica:** a alta proporção de "não especificado" em modalidade e senioridade reflete a ausência dessa informação nas vagas coletadas, não uma falha na inferência — nenhum valor foi assumido sem evidência textual.
+
 ## Status do projeto
 
-**Em andamento** — coleta de dados concluída, próxima etapa: limpeza e deduplicação.
+**Em andamento** — coleta e tratamento de dados concluídos, próxima etapa: análise exploratória.
